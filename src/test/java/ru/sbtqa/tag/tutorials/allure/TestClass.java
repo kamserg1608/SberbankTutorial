@@ -35,8 +35,11 @@ public class TestClass {
 
     @Test
     public void testDemoConnectionSuccess() {
+        Steps.checkSumStep(3, 2, 5);
         logger1.info("ARTEM");
         LOG.warning("DADADADA2");
+        Steps.logToAllure("BUGAGA");
+        Assert.assertTrue("Сумма слагаемых не соответствует ожидаемому значению", 1 + 3== 4);
         Steps.logToAllure("BUGAGA");
         LOG.info("Logged to allure: " + "AZAZA");
         Assert.assertTrue(true);
