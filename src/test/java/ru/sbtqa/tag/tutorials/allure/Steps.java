@@ -2,12 +2,12 @@ package ru.sbtqa.tag.tutorials.allure;
 
 import io.qameta.allure.Step;
 import org.junit.Assert;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Steps {
 //    private static final Logger logger = LogManager.getLogger(Steps.class);
-    static final Logger logger = LogManager.getLogger(Steps.class.getName());
+    static final Logger logger = LoggerFactory.getLogger(Steps.class.getName());
 
     @Step
     public static void checkSumStep(int num1, int num2, int expectedSum) {

@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class TestClass {
-    private static final Logger LOG = Logger.getLogger(TestClass.class.getName());
+    private static final Logger LOG = Logger.getLogger("TestClass");
     private static final org.slf4j.Logger logger1 = LoggerFactory.getLogger(TestClass.class);
 
 
@@ -40,8 +40,10 @@ public class TestClass {
         LOG.warning("DADADADA2");
         Steps.logToAllure("BUGAGA");
         Assert.assertTrue("Сумма слагаемых не соответствует ожидаемому значению", 1 + 3== 4);
-        Steps.logToAllure("BUGAGA");
-        LOG.info("Logged to allure: " + "AZAZA");
+        Steps.logToAllure("BUGAGA123123");
+        logger1.debug("123123123");
+        Steps.logToAllure("BUGAGA123123");
+        logger1.info("Logged to allure: " + "AZAZA");
         Assert.assertTrue(true);
 
     }

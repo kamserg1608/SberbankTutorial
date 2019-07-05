@@ -16,47 +16,49 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
-    <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+    <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+    <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
+    <!--region Allure-->
     <aspectj.version>1.9.1</aspectj.version>
     <allure-junit4.version>2.7.0</allure-junit4.version>
     <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+    <!--endregion  Allure-->
+
   </properties>
 
   <dependencies>
+    <!--region  Logger - This use logger dependencies for work Allure @Step-->
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.2.3</version>
+      <version>1.3.0-alpha4</version>
       <scope>test</scope>
     </dependency>
+    <!--endregion  Logger-->
+
+    <!--region JUnit-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+    <!--endregion  JUnit-->
+
+    <!--region Allure-->
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-junit4</artifactId>
       <version>${allure-junit4.version}</version>
     </dependency>
-    <!-- Логгер необходим в classpath для работы Allure @Step -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>1.7.25</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>2.11.2</version>
-    </dependency>
+    <!--endregion Allure-->
+
+
   </dependencies>
 
   <build>
     <plugins>
+      <!--region Allure-->
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <version>${maven-resources-plugin.version}</version>
@@ -123,16 +125,21 @@
         <artifactId>allure-maven</artifactId>
         <version>2.9</version>
       </plugin>
+      <!--endregion Allure-->
+      <!--region JavaDoc-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.1.0</version>
       </plugin>
+      <!--endregion JavaDoc-->
     </plugins>
   </build>
+
   <reporting>
     <excludeDefaults>true</excludeDefaults>
     <plugins>
+      <!--region JavaDoc-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
@@ -142,6 +149,7 @@
           <splitindex>true</splitindex>
         </configuration>
       </plugin>
+      <!--endregion JavaDoc-->
     </plugins>
   </reporting>
 </project>
