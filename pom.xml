@@ -20,40 +20,44 @@
     <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
     <!--region Allure-->
     <aspectj.version>1.9.1</aspectj.version>
-    <allure-junit4.version>2.7.0</allure-junit4.version>
+    <allure-junit4.version>2.12.1</allure-junit4.version>
     <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
     <!--endregion  Allure-->
 
   </properties>
 
-  <dependencies>
-    <!--region  Logger - This use logger dependencies for work Allure @Step-->
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.3.0-alpha4</version>
-      <scope>test</scope>
-    </dependency>
-    <!--endregion  Logger-->
 
-    <!--region JUnit-->
+  <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
-    <!--endregion  JUnit-->
-
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.3</version>
+      <scope>test</scope>
+    </dependency>
     <!--region Allure-->
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-junit4</artifactId>
       <version>${allure-junit4.version}</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <!--endregion Allure-->
-
-
   </dependencies>
 
   <build>
